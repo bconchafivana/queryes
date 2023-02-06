@@ -1,0 +1,8 @@
+select customer_id as rut, business_reason as Razon_Social, legal::legal_name as Rep_legal, contact_name,comercial_executive_name as Ejecutivo_comercial, 
+case when allowed_operate = 1 then 'Activo'
+     when allowed_operate = 0 then 'Inactivo' 
+     when allowed_operate is null then 'Inactivo' 
+     else allowed_operate end as Estado, 
+     inoperative_cause, Region, city_name as Ciudad, county_name as Comuna, contact_phone as teléfono, Contact_email as correo, tributary_folder::cover::giro as Giro 
+     from fc_customers a 
+     left join fc_chile_city b on b.city = a.city_name
