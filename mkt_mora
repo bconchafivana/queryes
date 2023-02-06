@@ -1,0 +1,4 @@
+select distinct client_rut as rut , 'mora >5' as ind_mor
+ from fc_documents 
+ where status = 2 and (deleted is null or  deleted = 0) 
+ and DATEDIFF(CURDATE(),custom_expiration_utc) > 5
