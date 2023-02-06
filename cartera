@@ -1,0 +1,5 @@
+select *
+ from fc_documents
+ WHERE status = 2
+ AND backoffice_status != 'Cas'
+ AND (deleted is null OR deleted = 0)
